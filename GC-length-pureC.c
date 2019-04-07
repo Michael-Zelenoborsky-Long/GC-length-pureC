@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     while(fgets(line, 16300, fp) != NULL) {
         if(*line == '>') {
             if(name != NULL) {
-                printf("%s\t%f\t%l\n", name, ((float) GC)/(GC+AT), length);
+                printf("%s\t%f\t%llu\n", name, ((float) GC)/(GC+AT), length);
                 free(name);
             }
             GC = AT = length = 0;
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
         }
     }
     if(name != NULL) {
-        printf("%s\t%f\t%l\n", name, ((float) GC)/(GC+AT), length);
+        printf("%s\t%f\t%llu\n", name, ((float) GC)/(GC+AT), length);
         free(name);
     }
     fclose(fp);
